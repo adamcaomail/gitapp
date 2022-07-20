@@ -12,6 +12,6 @@ RUN mvn package
 
 
 FROM tomcat:9.0-alpine
-
-COPY --from=mvnstage /mvnapp/${project_name}-${project_version}.war /usr/local/tomcat/webapps/
-EXPOSE 8081
+RUN sed -i 's/port="8080"/port="8088"/' /usr/local/tomcat/conf/server.xml
+COPY --from=mvnstage /mvnapp/${project_name}-${project_version}.war /usr/local/tomcat/webapps/helloworld.war
+EXPOSE 8088
