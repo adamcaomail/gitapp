@@ -13,6 +13,11 @@ public class MyController {
     return "say hello world";
   }
 
+  @GetMapping("/ping")
+  public String pingPang() {
+    return "pang";
+  }
+
   @GetMapping("/hello")
   public String sayHello() {
     DateTimeFormatter dtf = DateTimeFormatter.ofPattern("uuuu/MM/dd HH:mm:ss");
