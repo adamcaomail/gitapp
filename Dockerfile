@@ -8,7 +8,7 @@ ARG project_name
 ARG project_version
 WORKDIR /mvnapp
 COPY --from=gitstage /gitapp/${project_name} ./
-RUN mvn package
+RUN mvn clean package
 
 
 FROM tomcat:9.0-alpine
